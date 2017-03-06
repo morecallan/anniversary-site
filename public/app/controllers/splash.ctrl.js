@@ -1,3 +1,5 @@
 app.controller("SplashCtrl", function($scope){
-  console.log("SplashCtrl loaded")
+  $(document).ready(function() {
+    $('.parallax').parallax();
+  });
 })
