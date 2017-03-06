@@ -1,1 +1,62 @@
-<h4>RSVP</h4>
+<div class="container">
+  <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s3">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="first_name" type="text" class="validate" ng-model="rsvp.firstName">
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s3">
+            <input id="last_name" type="text" class="validate"  ng-model="rsvp.lastName">
+            <label for="last_name">Last Name</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">email</i>
+            <input id="email" type="email" class="validate" ng-model="rsvp.email">
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field col s4">
+            <i class="material-icons prefix">card_travel</i>
+            <input type="checkbox" id="out-of-town" ng-model="rsvp.outOfTown"/>
+            <label for="out-of-town">Coming from out of town?</label>
+          </div>
+          <div class="input-field col s4">
+            <i class="material-icons prefix">pets</i>
+            <input type="checkbox" id="pet" ng-model="rsvp.needPetFriendly"/>
+            <label for="pet">Planning on bringing your pet?</label>
+          </div>
+          <div class="input-field col s3">
+            <i class="material-icons prefix">group_add</i>
+            <input type="checkbox" id="additional" ng-change="displayMoreGuests()" ng-model="guests"/>
+            <label for="additional">Additional Guests?</label>
+          </div>
+          <div class="input-field col s1" ng-show="displayMoreGuestView">
+            <input type="number" id="additional-num" ng-change="calculateNumToDisplay()" ng-model="numOfGuests"/>
+            <label for="additional-num">How Many?</label>
+          </div>
+
+          <!-- Additional Guests -->
+          <h5 ng-if="additionalGuests.length > 0">Additional Guests</h5>
+          <div ng-repeat="additionalGuest in additionalGuests track by $index">
+            <div class="input-field col s3">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="first_name" type="text" class="validate" ng-model="additionalGuest.firstName">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s3">
+              <input id="last_name" type="text" class="validate"  ng-model="additionalGuest.lastName">
+              <label for="last_name">Last Name</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix">email</i>
+              <input id="email" type="email" class="validate" ng-model="additionalGuest.email">
+              <label for="email">Email</label>
+            </div>
+          </div>
+
+
+        </div>
+      </form>
+    </div>
+</div>
