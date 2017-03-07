@@ -1,1 +1,1 @@
-var app = angular.module("Anniversary", ["ngRoute"])
+var app = angular.module("Anniversary", ["ngRoute", "ngFileUpload"])
