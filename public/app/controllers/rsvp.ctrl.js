@@ -4,8 +4,7 @@ app.controller("RSVPCtrl", function($scope){
     lastName: "",
     email: "",
     outOfTown: false,
-    needPetFriendly: false,
-    image: "",
+    needPetFriendly: false
   }
 
 
@@ -62,5 +61,7 @@ app.controller("RSVPCtrl", function($scope){
 
   $scope.submission = () => {
     console.log($scope.guestsToBeAdded)
+    console.log($scope.song)
+    console.log($scope.rsvp)
   }
 })

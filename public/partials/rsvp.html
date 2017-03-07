@@ -46,9 +46,9 @@
         </div>
 
 
-          <!-- Additional Guests -->
-          <h5 ng-if="additionalGuests.length > 0">Additional Guests</h5>
-          <div ng-repeat="additionalGuest in additionalGuests track by $index">
+        <!-- Additional Guests -->
+        <h5 ng-if="additionalGuests.length > 0">Additional Guests</h5>
+        <div ng-repeat="additionalGuest in additionalGuests track by $index">
             <div class="input-field col s3">
               <i class="material-icons prefix">account_circle</i>
               <input id="first_name{{$index}}" type="text" class="validate" ng-model="guestsToBeAdded[$index].firstName">
@@ -86,7 +86,7 @@
           </div>
           <div class="col s8">
             <div class="input-field">
-              <input id="song" type="text" class="validate"  ng-model="rsvp.song">
+              <input id="song" type="text" class="validate"  ng-model="song">
               <label for="song">That song</label>
             </div>
           </div>
