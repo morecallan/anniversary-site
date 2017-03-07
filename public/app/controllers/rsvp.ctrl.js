@@ -1,4 +1,4 @@
-app.controller("RSVPCtrl", function($scope){
+app.controller("RSVPCtrl", function($scope, DataFactory){
   var storage = firebase.storage();
   var storageRef= firebase.storage().ref();
 

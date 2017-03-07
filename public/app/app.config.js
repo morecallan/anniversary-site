@@ -14,3 +14,11 @@ app.config (function($routeProvider){
 	}).
 	otherwise('/')
 });
+
+app.constant("FIREBASE_CONFIG", {
+	apiKey: "AIzaSyBs5H0tSgWoGCVk9AmxKl62XoGz-yguql4",
+	authDomain: "anniversary-61e42.firebaseapp.com",
+	databaseURL: "https://anniversary-61e42.firebaseio.com",
+	storageBucket: "anniversary-61e42.appspot.com",
+	messagingSenderId: "890352153892"
+})
