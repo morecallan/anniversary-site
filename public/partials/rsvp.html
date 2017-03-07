@@ -60,9 +60,25 @@
               <label for="email{{$index}}">Email</label>
             </div>
           </div>
+        </div>
+
+        <div class="row" id="file_upload">
+          <div class="col s4">
+            <p class="grey-text"><i class="black-text material-icons prefix small" style="padding-right: 10px;">photo</i>Have a picture of the couple you want to share?</p>
+          </div>
+          <div class="file-field input-field col s8">
+            <div class="btn">
+              <span>File</span>
+              <input type="file">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
           <button type="button" class="btn" name="button" ng-click="submission()">Done</button>
-
-
         </div>
       </form>
     </div>
