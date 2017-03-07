@@ -41,19 +41,20 @@
           <div ng-repeat="additionalGuest in additionalGuests track by $index">
             <div class="input-field col s3">
               <i class="material-icons prefix">account_circle</i>
-              <input id="first_name" type="text" class="validate" ng-model="additionalGuest.firstName">
-              <label for="first_name">First Name</label>
+              <input id="first_name{{$index}}" type="text" class="validate" ng-model="guestsToBeAdded[$index].firstName">
+              <label for="first_name{{$index}}">First Name</label>
             </div>
             <div class="input-field col s3">
-              <input id="last_name" type="text" class="validate"  ng-model="additionalGuest.lastName">
-              <label for="last_name">Last Name</label>
+              <input id="last_name{{$index}}" type="text" class="validate"  ng-model="guestsToBeAdded[$index].lastName">
+              <label for="last_name{{$index}}">Last Name</label>
             </div>
             <div class="input-field col s6">
               <i class="material-icons prefix">email</i>
-              <input id="email" type="email" class="validate" ng-model="additionalGuest.email">
-              <label for="email">Email</label>
+                <input id="email{{$index}}" type="email" class="validate" ng-model="guestsToBeAdded[$index].email">
+              <label for="email{{$index}}">Email</label>
             </div>
           </div>
+          <button type="button" class="btn" name="button" ng-click="submission()">Done</button>
 
 
         </div>

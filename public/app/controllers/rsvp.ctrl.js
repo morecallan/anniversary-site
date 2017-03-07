@@ -8,10 +8,13 @@ app.controller("RSVPCtrl", function($scope){
     image: "",
   }
 
+
   let numOfGuestsAtLastCalc;
-  
+
 
   $scope.additionalGuests = [];
+  $scope.guestsToBeAdded = [];
+
 
   $scope.displayMoreGuestView = false;
 
@@ -31,9 +34,8 @@ app.controller("RSVPCtrl", function($scope){
       lastName: "",
       email: ""
     }
-    console.log(numOfGuestsAtLastCalc, $scope.numOfGuests)
 
-
+    // This is a pretty annoying fix for if they change the # of guests they are bringing
     if ($scope.additionalGuests.length == 0) {
       for (var i = 0; i < $scope.numOfGuests; i++) {
         newGuest.guestId = i;
@@ -50,7 +52,15 @@ app.controller("RSVPCtrl", function($scope){
       }
     }
 
+    $(document).ready(function() {
+      Materialize.updateTextFields();
+    });
+
     numOfGuestsAtLastCalc = $scope.numOfGuests;
 
+  }
+
+  $scope.submission = () => {
+    console.log($scope.guestsToBeAdded)
   }
 })
