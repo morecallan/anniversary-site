@@ -1,4 +1,8 @@
 app.controller("RSVPCtrl", function($scope){
+  var storage = firebase.storage();
+  var storageRef= firebase.storage().ref();
+
+
   $scope.rsvp = {
     firstName: "",
     lastName: "",
@@ -7,6 +11,27 @@ app.controller("RSVPCtrl", function($scope){
     needPetFriendly: false
   }
 
+
+  ////////////////////////////////////
+  /////////// Image Upload ///////////
+  ////////////////////////////////////
+
+  let uploadImageUrl;
+
+  $scope.submitPicture = () => {
+    uploadTask = storageRef.child(`momAndDadImg/${$scope.picture.name}`).put($scope.picture);
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, function(snapshot) {
+    }, function(error) {
+      Materialize.toast(`${error.message}`, 2000, "red accent-2")
+    }, function() {
+      uploadImageUrl = uploadTask.snapshot.downloadURL;
+      console.log(uploadImageUrl)
+    })
+  }
+
+  ////////////////////////////////////
+  /////////// Extra Guests ///////////
+  ////////////////////////////////////
 
   let numOfGuestsAtLastCalc;
 
@@ -58,6 +83,11 @@ app.controller("RSVPCtrl", function($scope){
     numOfGuestsAtLastCalc = $scope.numOfGuests;
 
   }
+
+
+  ////////////////////////////////////
+  /////////// Submit Guest ///////////
+  ////////////////////////////////////
 
   $scope.submission = () => {
     console.log($scope.guestsToBeAdded)
