@@ -12,6 +12,14 @@ app.config (function($routeProvider){
 		templateUrl: 'partials/more-info.html',
 		controller: 'MoreInfoCtrl',
 	}).
+	when('/share', {
+		templateUrl: 'partials/accomodations.html',
+		controller: 'MoreInfoCtrl',
+	}).
+	when('/accomodations', {
+		templateUrl: 'partials/accomodations.html',
+		controller: 'AccomodationsCtrl',
+	}).
 	otherwise('/')
 });
 
