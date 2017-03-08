@@ -90,8 +90,25 @@ app.controller("RSVPCtrl", function($scope, DataFactory){
   ////////////////////////////////////
 
   $scope.submission = () => {
-    console.log($scope.guestsToBeAdded)
-    console.log($scope.song)
-    console.log($scope.rsvp)
+    let imageObj = {
+      imageURL: uploadImageUrl
+    }
+
+    let songObj = {
+      song: $scope.song
+    }
+
+    DataFactory.addNewGuest($scope.rsvp).then((data) => {
+      songObj.submittedBy = data.data.name;
+      imageObj.submittedBy = data.data.name;
+      DataFactory.addNewSong(songObj).then((data) => {})
+      DataFactory.addNewImageRef(imageObj).then((data) => {
+        Materialize.toast(`Can't wait to see you there, ${$scope.rsvp.firstName}`, 2000, "green")
+      })
+    })
+
+    for (var i = 0; i < $scope.guestsToBeAdded.length; i++) {
+      DataFactory.addNewGuest($scope.guestsToBeAdded[i]).then((data) => {})
+    }
   }
 })

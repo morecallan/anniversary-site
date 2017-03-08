@@ -4,7 +4,6 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
       return $q(function(resolve, reject) {
           $http.post(`${FIREBASE_CONFIG.databaseURL}/guests.json`, JSON.stringify(guest))
           .then((data) => {
-            console.log(data)
             resolve(data);
           }, (error) => reject(error));
       });
@@ -14,7 +13,6 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
       return $q(function(resolve, reject) {
           $http.post(`${FIREBASE_CONFIG.databaseURL}/songs.json`, JSON.stringify(song))
           .then((data) => {
-            console.log(data)
             resolve(data);
           }, (error) => reject(error));
       });
@@ -24,7 +22,6 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
       return $q(function(resolve, reject) {
           $http.post(`${FIREBASE_CONFIG.databaseURL}/images.json`, JSON.stringify(imgUrl))
           .then((data) => {
-            console.log(data)
             resolve(data);
           }, (error) => reject(error));
       });
