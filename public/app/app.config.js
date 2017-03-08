@@ -13,8 +13,8 @@ app.config (function($routeProvider){
 		controller: 'MoreInfoCtrl',
 	}).
 	when('/share', {
-		templateUrl: 'partials/accomodations.html',
-		controller: 'MoreInfoCtrl',
+		templateUrl: 'partials/share.html',
+		controller: 'ShareCtrl',
 	}).
 	when('/accomodations', {
 		templateUrl: 'partials/accomodations.html',
