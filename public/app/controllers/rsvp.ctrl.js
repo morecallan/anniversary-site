@@ -2,6 +2,16 @@ app.controller("RSVPCtrl", function($scope, DataFactory){
   var storage = firebase.storage();
   var storageRef= firebase.storage().ref();
 
+  let petModalHasBeenOpened = false;
+
+  $scope.showPetFriendlyModal = false;
+
+  $scope.needPetFriendlyModal = () => {
+    if (!petModalHasBeenOpened && $scope.rsvp.needPetFriendly) {
+      $scope.showPetFriendlyModal = true;
+    }
+  }
+
 
   $scope.rsvp = {
     firstName: "",
