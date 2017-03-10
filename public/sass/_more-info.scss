@@ -1,0 +1,22 @@
+.mudcat-bg {
+  background: url("http://farm5.static.flickr.com/4132/4968794261_2a7d0bcd5b.jpg") center center no-repeat;
+  background-size: cover;
+}
+
+.opacity-bg {
+  background: rgba(#757575, 0.8);
+}
+
+.medium-card {
+  max-height: 450px;
+  min-height: 450px;
+}
+
+.medium-card img {
+  max-height: 250px;
+}
+
+.card-title {
+  background-color: rgba(#757575, 0.8);
+  width: 100%;
+}
