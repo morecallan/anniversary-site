@@ -104,6 +104,12 @@
             <button type="button" class="btn btn-large" name="button" ng-click="submission()">Done!</button>
           </div>
         </div>
+
+        <div class="mock-modal" ng-show="showPetFriendlyModal">
+          <h5>Considering Bringing Your Pet?</h5>
+          <p>A very common question: can I bring a dog? It IS a Morrison party; you  would think this is a no brainer. However, due to the amount of people/food, bringing your 4-legged friend might get a little furry. If you do bring your pup, please make sure to keep an eye on them.</p>
+          <button type="button" class="btn white teal-text" ng-click="showPetFriendlyModal = !showPetFriendlyModal">Got it!</button>
+        </div>
       </form>
     </div>
 </div>
