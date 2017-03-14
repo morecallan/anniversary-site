@@ -59,7 +59,8 @@
 
 .medium-card {
   max-height: 450px;
-  min-height: 450px; }
+  min-height: 450px;
+  overflow: hidden; }
 
 .medium-card img {
   max-height: 250px; }
