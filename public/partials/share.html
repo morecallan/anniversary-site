@@ -1,6 +1,48 @@
 <div class="container">
   <div class="share-section">
     <h4 class="center">Their Story</h4>
+    <section>
+      <h5>The Beginning</h5>
+      <p><em>How does romance begin? Did they see each other from across the room and just know they were the one? Well, no. The opposite actually.</em></p>
+      <p>They met on a blind date, where Scott actually got pepper in his eye and went temporarily blind... Giving a whole new meaning to blind dates. After a wreck of a date, they decide not to pursue the romance.</p>
+      <p>It’s not till the wedding of the two people who set them up did they discover the true potential… while dancing on a table. For anyone who knows our parents, this was very predictable and the perfect way to start their relationship. </p>
+    </section>
+    <section>
+      <h5>The Engagement</h5>
+      <p><em>As you can tell from their ...humble… beginnings, Cindy & Scott’s story reads just like a Nicholas Sparks novel. Just straight romance (not!). Their engagement story is no different.</em></p>
+      <p>Scott knew Cindy was the one and was planning the dream proposal for quite some time. His plan involved a river boat in spring and was planned to a T. Until Cindy gave him the ultimatum… Propose by Christmas or she was out. Always eager and impatient that Cindy.</p>
+      <p>Forced to expedite his plans, he sought out the perfect spot in the botanical gardens to propose on Christmas Eve. This plan also failed when mother nature intervened and poured down rain.</p>
+      <p>Scott could not be deterred, so he brought her to a fancy restaurant. However there was an hour wait, and we have already reviewed how Cindy is rather impatient.</p>
+      <p>So to plan D, gas station pizza. They grabbed a pizza, he slipped the ring in her jean jacket and the rest is history.</p>
+    </section>
+    <section class="others-memories">
+      <h5>What Their Friends Have to Say</h5>
+      <section class="overflow-scroll">
+        <div class="memory" ng-repeat="memory in memories">
+          <p>{{memory.memory}}</p>
+          <p ng-if="memory.submittedBy">Submitted by: {{memory.submittedBy}}</p>
+        </div>
+      </section>
+    </section>
+    <section>
+      <h5>Want to add your memories of their love story?</h5>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="share-memory" ng-model="memory.memory" class="materialize-textarea"></textarea>
+          <label for="share-memory">Share your favorite Scott and Cindy memory:</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6 offset-s2">
+          <input id="share-memory-name" type="text" ng-model="memory.submittedBy" class="validate">
+          <label for="share-memory-name">Submitted By:</label>
+        </div>
+        <div class="col s2">
+          <button type="button" ng-click="submitMemory()" class="btn">Add it!</button>
+        </div>
+      </div>
+    </section>
   </div>
 
   <div class="share-section">

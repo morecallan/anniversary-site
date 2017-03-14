@@ -59,5 +59,23 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
     });
   }
 
-  return {addNewGuest: addNewGuest, addNewSong: addNewSong, addNewImageRef: addNewImageRef, returnRSVPPhotos: returnRSVPPhotos}
+  var submitMemory = (memory) => {
+    return $q(function(resolve, reject) {
+        $http.post(`${FIREBASE_CONFIG.databaseURL}/memories.json`, JSON.stringify(memory))
+        .then((data) => {
+          resolve(data);
+        }, (error) => reject(error));
+    });
+  }
+
+  var getMemories = () => {
+    return $q(function(resolve, reject) {
+        $http.get(`${FIREBASE_CONFIG.databaseURL}/memories.json`)
+        .then((data) => {
+          resolve(data.data);
+        }, (error) => reject(error));
+    });
+  }
+
+  return {addNewGuest: addNewGuest, addNewSong: addNewSong, addNewImageRef: addNewImageRef, returnRSVPPhotos: returnRSVPPhotos, submitMemory: submitMemory, getMemories: getMemories}
 })

@@ -69,6 +69,19 @@
   background-color: rgba(117, 117, 117, 0.8);
   width: 100%; }
 
+.overflow-scroll {
+  max-height: 100px;
+  overflow: auto;
+  background-color: rgba(117, 117, 117, 0.2); }
+
+.memory {
+  width: 96%;
+  margin: 2%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: rgba(77, 182, 172, 0.9); }
+
 #photos {
   /* Prevent vertical gaps */
   line-height: 0;

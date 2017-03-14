@@ -1,3 +1,22 @@
+////////////////////////////////
+///////// Memories /////////////
+
+.overflow-scroll {
+  max-height: 100px;
+  overflow: auto;
+  background-color: rgba(#757575, 0.2);
+}
+
+.memory {
+  width: 96%;
+  margin: 2%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: rgba(#4db6ac, .90);
+}
+
+
 #photos {
   /* Prevent vertical gaps */
   line-height: 0;
