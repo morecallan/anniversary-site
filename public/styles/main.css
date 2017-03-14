@@ -68,3 +68,30 @@
 .card-title {
   background-color: rgba(117, 117, 117, 0.8);
   width: 100%; }
+
+#photos {
+  /* Prevent vertical gaps */
+  line-height: 0;
+  -webkit-column-count: 5;
+  -webkit-column-gap: 0px;
+  -moz-column-count: 5;
+  -moz-column-gap: 0px;
+  column-count: 5;
+  column-gap: 0px; }
+
+#photos .img-card {
+  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important; }
+
+.img-card {
+  position: relative; }
+  .img-card h6 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    background-color: rgba(117, 117, 117, 0.8); }

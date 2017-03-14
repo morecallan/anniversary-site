@@ -27,5 +27,37 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
       });
   };
 
-  return {addNewGuest: addNewGuest, addNewSong: addNewSong, addNewImageRef: addNewImageRef}
+  var returnRSVPPhotos = function(){
+    return $q(function(resolve, reject) {
+        $http.get(`${FIREBASE_CONFIG.databaseURL}/images.json`)
+        .then((data) => {
+          let imagesFromRSVP = data.data;
+          let iterations = Object.keys(imagesFromRSVP).length;
+          let resolveArray = [];
+          for (var img in imagesFromRSVP) {
+            getGuestName(imagesFromRSVP[img].submittedBy).then((name) => {
+              imagesFromRSVP[img].submittedBy = name;
+            })
+            resolveArray.push(imagesFromRSVP[img]);
+            if (resolveArray.length == iterations) {
+              resolve(imagesFromRSVP);
+            }
+          }
+        }, (error) => reject(error));
+    });
+  }
+
+  var getGuestName = (guestId) => {
+    return $q(function(resolve, reject) {
+        console.log(guestId)
+        $http.get(`${FIREBASE_CONFIG.databaseURL}/guests/${guestId}.json`)
+        .then((data) => {
+          let guest = data.data
+          let fullName = `${guest.firstName} ${guest.lastName}`
+          resolve(fullName);
+        }, (error) => reject(error));
+    });
+  }
+
+  return {addNewGuest: addNewGuest, addNewSong: addNewSong, addNewImageRef: addNewImageRef, returnRSVPPhotos: returnRSVPPhotos}
 })

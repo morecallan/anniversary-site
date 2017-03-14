@@ -1,3 +1,11 @@
-app.controller("ShareCtrl", function($scope){
-  console.log("ShareCtrl loaded")
+app.controller("ShareCtrl", function($scope, DataFactory){
+  $scope.photos = [];
+
+  $scope.getRsvpPhotos = () => {
+    DataFactory.returnRSVPPhotos().then((data) => {
+      $scope.photos = data;
+    })
+  }
+
+  $scope.getRsvpPhotos();
 })

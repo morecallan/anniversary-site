@@ -1,13 +1,19 @@
 <div class="container">
   <div class="share-section">
-    <h4>Their Story</h4>
+    <h4 class="center">Their Story</h4>
   </div>
 
   <div class="share-section">
-    <h4>Gallery</h4>
+    <h4 class="center">Gallery</h4>
+    <div id="photos">
+      <div class="img-card" ng-repeat="photo in photos">
+        <img ng-src="{{photo.imageURL}}" alt="">
+        <h6 ng-if="photo.submittedBy"> Submitted by: {{photo.submittedBy}}</h6>
+      </div>
+    </div>
   </div>
 
   <div class="share-section">
-    <h4>The Playlist</h4>
+    <h4 class="center">The Playlist</h4>
   </div>
 </div>
