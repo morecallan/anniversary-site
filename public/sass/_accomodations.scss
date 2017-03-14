@@ -1,0 +1,41 @@
+.hotel-main-container {
+  display: flex;
+}
+
+.hotel-info {
+  width: 30%;
+  background-color: rgba(#757575, 0.8);
+  padding: 20px;
+  margin: 1%;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+
+  h6 {
+    font-size: 2em;
+  }
+
+  img {
+    width: 90%;
+    margin: 5%;
+  }
+
+  p {
+    margin: 10px;  
+  }
+
+  a {
+    display: block;
+    padding: 5px;
+    background-color: rgba(#4db6ac, .90);
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+.other-options {
+  width: 62%;
+}
