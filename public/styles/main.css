@@ -29,6 +29,16 @@
 .other-options {
   width: 62%; }
 
+.after-hotel {
+  width: 94%;
+  background-color: rgba(77, 182, 172, 0.9); }
+
+.transportation {
+  background-color: rgba(117, 117, 117, 0.8); }
+
+.padding-top-bottom {
+  margin: 50px 0; }
+
 .mock-modal {
   position: absolute;
   top: 20%;
