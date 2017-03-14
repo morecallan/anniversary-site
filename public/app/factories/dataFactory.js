@@ -77,5 +77,23 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
     });
   }
 
-  return {addNewGuest: addNewGuest, addNewSong: addNewSong, addNewImageRef: addNewImageRef, returnRSVPPhotos: returnRSVPPhotos, submitMemory: submitMemory, getMemories: getMemories}
+  var submitPicturesFromShare = (sharedPic) => {
+    return $q(function(resolve, reject) {
+        $http.post(`${FIREBASE_CONFIG.databaseURL}/sharedPic.json`, JSON.stringify(sharedPic))
+        .then((data) => {
+          resolve(data);
+        }, (error) => reject(error));
+    });
+  }
+
+  var getSharedPics = () => {
+    return $q(function(resolve, reject) {
+        $http.get(`${FIREBASE_CONFIG.databaseURL}/sharedPic.json`)
+        .then((data) => {
+          resolve(data.data);
+        }, (error) => reject(error));
+    });
+  }
+
+  return {addNewGuest: addNewGuest, addNewSong: addNewSong, addNewImageRef: addNewImageRef, returnRSVPPhotos: returnRSVPPhotos, submitMemory: submitMemory, getMemories: getMemories, submitPicturesFromShare: submitPicturesFromShare, getSharedPics: getSharedPics}
 })

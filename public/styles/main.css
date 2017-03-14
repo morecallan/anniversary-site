@@ -82,19 +82,9 @@
   color: white;
   background-color: rgba(77, 182, 172, 0.9); }
 
-#photos {
-  /* Prevent vertical gaps */
-  line-height: 0;
-  -webkit-column-count: 5;
-  -webkit-column-gap: 0px;
-  -moz-column-count: 5;
-  -moz-column-gap: 0px;
-  column-count: 5;
-  column-gap: 0px; }
-
 #photos .img-card {
   /* Just in case there are inline attributes */
-  width: 100% !important;
+  max-width: 200px;
   height: auto !important; }
 
 .img-card {
@@ -108,3 +98,5 @@
     color: white;
     text-align: center;
     background-color: rgba(117, 117, 117, 0.8); }
+  .img-card img {
+    max-width: 200px; }

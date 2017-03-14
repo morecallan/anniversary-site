@@ -24,7 +24,7 @@
         </div>
       </section>
     </section>
-    <section>
+    <section class="sharing-input">
       <h5>Want to add your memories of their love story?</h5>
       <div class="row">
         <div class="input-field col s12">
@@ -53,6 +53,27 @@
         <h6 ng-if="photo.submittedBy"> Submitted by: {{photo.submittedBy}}</h6>
       </div>
     </div>
+    <section class="sharing-input">
+      <h5>Want to add your memories with Scott and Cindy?</h5>
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Select Pictures</span>
+          <input type="file" multiple ngf-select ng-model="images" ngf-multiple="true">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" placeholder="Upload one or more files">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6 offset-s2">
+          <input id="share-image-name" type="text" ng-model="image.submittedBy" class="validate">
+          <label for="share-image-name">Submitted By:</label>
+        </div>
+        <div class="col s2">
+          <button type="button" ng-click="submitPictures()" class="btn">Share!</button>
+        </div>
+      </div>
+    </section>
   </div>
 
   <div class="share-section">
