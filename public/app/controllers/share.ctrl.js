@@ -11,7 +11,7 @@ app.controller("ShareCtrl", function($scope, $q, DataFactory){
   $scope.memories = [];
 
   $scope.submitMemory = () => {
-    if ($scope.memory != "") {
+    if ($scope.memory.memory != undefined && $scope.memory.memory != "") {
       DataFactory.submitMemory($scope.memory).then((data) => {
         Materialize.toast(`Thanks for sharing!`, 2000, "green")
         DataFactory.getMemories().then((memories) => {
@@ -60,12 +60,16 @@ app.controller("ShareCtrl", function($scope, $q, DataFactory){
 
 
   $scope.submitPictures = () => {
-    for (var i = 0; i < $scope.images.length; i++) {
-      uploadPhotoTask($scope.images[i].name, $scope.images[i]).then((uploadURL) => {
-        if (uploadURL != null) {
-          $scope.submitPicturesWithSubmissionName(uploadURL, $scope.image.submittedBy || "Anonymous")
-        }
-      })
+    if ($scope.images) {
+      for (var i = 0; i < $scope.images.length; i++) {
+        uploadPhotoTask($scope.images[i].name, $scope.images[i]).then((uploadURL) => {
+          if (uploadURL != null) {
+            $scope.submitPicturesWithSubmissionName(uploadURL, $scope.image.submittedBy || "Anonymous")
+          }
+        })
+      }
+    } else {
+      Materialize.toast(`Oops! You didn't select an image!`, 2000, "red")
     }
   }
 
@@ -106,10 +110,10 @@ app.controller("ShareCtrl", function($scope, $q, DataFactory){
   $scope.songs = [];
 
   $scope.submitSong = () => {
-    if ($scope.memory != "") {
+    if ($scope.song.song != undefined && $scope.song.song != "" ) {
       DataFactory.submitSong($scope.song).then((data) => {
         Materialize.toast(`Thanks for sharing!`, 2000, "green")
-        $scope.getAllCurrentMemories();
+        $scope.getAllCurrentSongs();
       })
     } else {
       Materialize.toast(`Oops! Don't forget to add a song!`, 2000, "red")
@@ -126,7 +130,6 @@ app.controller("ShareCtrl", function($scope, $q, DataFactory){
         for (var moresong in moresongs) {
           $scope.songs.push(moresongs[moresong])
         }
-        console.log($scope.songs)
       })
     })
   }
