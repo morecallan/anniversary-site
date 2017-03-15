@@ -11,16 +11,16 @@
         <div class="row">
           <div class="input-field col s3">
             <i class="material-icons prefix">account_circle</i>
-            <input id="first_name" type="text" class="validate" ng-model="rsvp.firstName">
+            <input id="first_name" type="text" class="validate" required ng-model="rsvp.firstName">
             <label for="first_name">First Name</label>
           </div>
           <div class="input-field col s3">
-            <input id="last_name" type="text" class="validate"  ng-model="rsvp.lastName">
+            <input id="last_name" type="text" class="validate"  required ng-model="rsvp.lastName">
             <label for="last_name">Last Name</label>
           </div>
           <div class="input-field col s6">
             <i class="material-icons prefix">email</i>
-            <input id="email" type="email" class="validate" ng-model="rsvp.email">
+            <input id="email" type="email" class="validate" required ng-model="rsvp.email">
             <label for="email">Email</label>
           </div>
         </div>
@@ -109,7 +109,7 @@
         <div class="mock-modal" ng-show="showPetFriendlyModal">
           <h5>Considering Bringing Your Pet?</h5>
           <p>A very common question: can I bring a dog? It IS a Morrison party; you  would think this is a no brainer. However, due to the amount of people/food, bringing your 4-legged friend might get a little furry, and because of that, we are discouraging it. If you do bring your pup, please make sure to keep an eye on them.</p>
-          <button type="button" class="btn white teal-text" ng-click="showPetFriendlyModal = !showPetFriendlyModal">Got it!</button>
+          <button type="submit" class="btn white teal-text" ng-click="showPetFriendlyModal = !showPetFriendlyModal">Got it!</button>
         </div>
       </form>
     </div>

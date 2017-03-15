@@ -108,17 +108,27 @@ app.controller("RSVPCtrl", function($scope, DataFactory){
       song: $scope.song
     }
 
-    DataFactory.addNewGuest($scope.rsvp).then((data) => {
-      songObj.submittedBy = data.data.name;
-      imageObj.submittedBy = data.data.name;
-      DataFactory.addNewSong(songObj).then((data) => {})
-      DataFactory.addNewImageRef(imageObj).then((data) => {
-        Materialize.toast(`Can't wait to see you there, ${$scope.rsvp.firstName}`, 2000, "green")
-      })
-    })
+    if ($scope.rsvp.firstName != "" && $scope.rsvp.lastName != "" && $scope.rsvp.email != "") {
+      DataFactory.addNewGuest($scope.rsvp).then((data) => {
+        songObj.submittedBy = data.data.name;
+        imageObj.submittedBy = data.data.name;
 
-    for (var i = 0; i < $scope.guestsToBeAdded.length; i++) {
-      DataFactory.addNewGuest($scope.guestsToBeAdded[i]).then((data) => {})
+        if (songObj.song != undefined && songObj.song != "") {
+          DataFactory.addNewSong(songObj).then((data) => {})
+        }
+
+        if (imageObj.imageURL != undefined && imageObj.imageURL != "") {
+          DataFactory.addNewImageRef(imageObj).then((data) => {
+            Materialize.toast(`Can't wait to see you there, ${$scope.rsvp.firstName}`, 2000, "green")
+          })
+        }
+      })
+
+      for (var i = 0; i < $scope.guestsToBeAdded.length; i++) {
+        DataFactory.addNewGuest($scope.guestsToBeAdded[i]).then((data) => {})
+      }
+    } else {
+      Materialize.toast(`Please fill out first name, last name and email.`, 2000, "red")
     }
   }
 })
