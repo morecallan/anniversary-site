@@ -34,14 +34,14 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
           let imagesFromRSVP = data.data;
           let iterations = Object.keys(imagesFromRSVP).length;
           let resolveArray = [];
-          for (var img in imagesFromRSVP) {
+          for (let img in imagesFromRSVP) {
             getGuestName(imagesFromRSVP[img].submittedBy).then((name) => {
               imagesFromRSVP[img].submittedBy = name;
+              resolveArray.push(imagesFromRSVP[img]);
+              if (resolveArray.length == iterations) {
+                resolve(imagesFromRSVP);
+              }
             })
-            resolveArray.push(imagesFromRSVP[img]);
-            if (resolveArray.length == iterations) {
-              resolve(imagesFromRSVP);
-            }
           }
         }, (error) => reject(error));
     });
@@ -49,7 +49,6 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
 
   var getGuestName = (guestId) => {
     return $q(function(resolve, reject) {
-        console.log(guestId)
         $http.get(`${FIREBASE_CONFIG.databaseURL}/guests/${guestId}.json`)
         .then((data) => {
           let guest = data.data
@@ -95,5 +94,43 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
     });
   }
 
-  return {addNewGuest: addNewGuest, addNewSong: addNewSong, addNewImageRef: addNewImageRef, returnRSVPPhotos: returnRSVPPhotos, submitMemory: submitMemory, getMemories: getMemories, submitPicturesFromShare: submitPicturesFromShare, getSharedPics: getSharedPics}
+  var submitSong = (song) => {
+    return $q(function(resolve, reject) {
+        $http.post(`${FIREBASE_CONFIG.databaseURL}/songsFromShare.json`, JSON.stringify(song))
+        .then((data) => {
+          resolve(data);
+        }, (error) => reject(error));
+    });
+  }
+
+  var getSongs = () => {
+    return $q(function(resolve, reject) {
+        $http.get(`${FIREBASE_CONFIG.databaseURL}/songsFromShare.json`)
+        .then((data) => {
+          resolve(data.data);
+        }, (error) => reject(error));
+    });
+  }
+
+  var returnRSVPSongs = function(){
+    return $q(function(resolve, reject) {
+        $http.get(`${FIREBASE_CONFIG.databaseURL}/songs.json`)
+        .then((data) => {
+          let songsFromRSVP = data.data;
+          let iterations = Object.keys(songsFromRSVP).length;
+          let resolveArray = [];
+          for (let song in songsFromRSVP) {
+            getGuestName(songsFromRSVP[song].submittedBy).then((name) => {
+              songsFromRSVP[song].submittedBy = name;
+              resolveArray.push(songsFromRSVP[song]);
+              if (resolveArray.length == iterations) {
+                resolve(songsFromRSVP);
+              }
+            })
+          }
+        }, (error) => reject(error));
+    });
+  }
+
+  return {addNewGuest: addNewGuest, addNewSong: addNewSong, addNewImageRef: addNewImageRef, returnRSVPPhotos: returnRSVPPhotos, submitMemory: submitMemory, getMemories: getMemories, submitPicturesFromShare: submitPicturesFromShare, getSharedPics: getSharedPics, submitSong: submitSong, getSongs: getSongs, returnRSVPSongs: returnRSVPSongs}
 })

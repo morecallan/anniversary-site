@@ -31,6 +31,7 @@ app.controller("ShareCtrl", function($scope, $q, DataFactory){
 
   $scope.getAllCurrentMemories();
 
+
   /*************************/
   /******** Photos *********/
   /*************************/
@@ -94,4 +95,41 @@ app.controller("ShareCtrl", function($scope, $q, DataFactory){
       $scope.getAllPhotos();
     })
   }
+
+
+  /*************************/
+  /******** Songs **********/
+  /*************************/
+
+  $scope.song = {};
+
+  $scope.songs = [];
+
+  $scope.submitSong = () => {
+    if ($scope.memory != "") {
+      DataFactory.submitSong($scope.song).then((data) => {
+        Materialize.toast(`Thanks for sharing!`, 2000, "green")
+        $scope.getAllCurrentMemories();
+      })
+    } else {
+      Materialize.toast(`Oops! Don't forget to add a song!`, 2000, "red")
+    }
+  }
+
+  $scope.getAllCurrentSongs = () => {
+    $scope.songs = [];
+    DataFactory.returnRSVPSongs().then((songs) => {
+      for (var song in songs) {
+        $scope.songs.push(songs[song])
+      }
+      DataFactory.getSongs().then((moresongs) => {
+        for (var moresong in moresongs) {
+          $scope.songs.push(moresongs[moresong])
+        }
+        console.log($scope.songs)
+      })
+    })
+  }
+
+  $scope.getAllCurrentSongs();
 })

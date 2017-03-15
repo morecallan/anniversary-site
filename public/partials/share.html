@@ -78,5 +78,30 @@
 
   <div class="share-section">
     <h4 class="center">The Playlist</h4>
+    <section class="playlist">
+      <div class="col s12 center" ng-repeat="song in songs">
+        <p><i class="material-icons small">queue_music</i>{{song.song}} <span class="submitted-by">Submitted By: {{song.submittedBy}}</span></p>
+      </div>
+    </section>
+
+    <section class="sharing-input">
+      <h5>Want to add your favorite Scott and Cindy Song to their playlist?</h5>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="share-memory" ng-model="song.song" class="materialize-textarea"></textarea>
+          <label for="share-memory">Share your favorite Scott and Cindy song:</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6 offset-s2">
+          <input id="share-song-name" type="text" ng-model="song.submittedBy" class="validate">
+          <label for="share-song-name">Submitted By:</label>
+        </div>
+        <div class="col s2">
+          <button type="button" ng-click="submitSomg()" class="btn">Rock it!</button>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
