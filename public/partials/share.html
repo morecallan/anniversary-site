@@ -20,7 +20,7 @@
       <section class="overflow-scroll">
         <div class="memory" ng-repeat="memory in memories">
           <p>{{memory.memory}}</p>
-          <p ng-if="memory.submittedBy">Submitted by: {{memory.submittedBy}}</p>
+          <p ng-if="memory.submittedBy">Submitted by: {{memory.submittedBy || "Anonymous"}}</p>
         </div>
       </section>
     </section>
@@ -50,7 +50,7 @@
     <div id="photos">
       <div class="img-card" ng-repeat="photo in photos">
         <img ng-src="{{photo.imageURL}}" alt="">
-        <h6 ng-if="photo.submittedBy"> Submitted by: {{photo.submittedBy}}</h6>
+        <h6 ng-if="photo.submittedBy"> Submitted by: {{photo.submittedBy || "Anonymous"}}</h6>
       </div>
     </div>
     <section class="sharing-input">
@@ -80,7 +80,7 @@
     <h4 class="center">The Playlist</h4>
     <section class="playlist">
       <div class="col s12 center" ng-repeat="song in songs">
-        <p><i class="material-icons small">queue_music</i>{{song.song}} <span class="submitted-by">Submitted By: {{song.submittedBy}}</span></p>
+        <p><i class="material-icons small">queue_music</i>{{song.song}} <span class="submitted-by">Submitted By: {{song.submittedBy || "Anonymous"}}</span></p>
       </div>
     </section>
 
