@@ -49,18 +49,20 @@ app.controller("ShareCtrl", function($scope, $q, $location, $anchorScroll, DataF
 
   $scope.getAllPhotos = () => {
     $scope.photos = [];
-    DataFactory.returnRSVPPhotos().then((datas) => {
-      for (var data in datas) {
-        $scope.photos.push(datas[data]);
+    DataFactory.getSharedPics().then((pics) => {
+      for (var pic in pics) {
+        $scope.photos.push(pics[pic]);
       }
-      DataFactory.getSharedPics().then((pics) => {
-        for (var pic in pics) {
-          $scope.photos.push(pics[pic]);
+      DataFactory.returnRSVPPhotos().then((datas) => {
+        if (datas != null) {
+          for (var data in datas) {
+            $scope.photos.push(datas[data]);
+          }
         }
       })
     })
-
   }
+
 
   $scope.getAllPhotos();
 
@@ -128,13 +130,15 @@ app.controller("ShareCtrl", function($scope, $q, $location, $anchorScroll, DataF
 
   $scope.getAllCurrentSongs = () => {
     $scope.songs = [];
-    DataFactory.returnRSVPSongs().then((songs) => {
-      for (var song in songs) {
-        $scope.songs.push(songs[song])
+    DataFactory.getSongs().then((moresongs) => {
+      for (var moresong in moresongs) {
+        $scope.songs.push(moresongs[moresong])
       }
-      DataFactory.getSongs().then((moresongs) => {
-        for (var moresong in moresongs) {
-          $scope.songs.push(moresongs[moresong])
+      DataFactory.returnRSVPSongs().then((songs) => {
+        if (songs != null) {
+          for (var song in songs) {
+            $scope.songs.push(songs[song])
+          }
         }
       })
     })

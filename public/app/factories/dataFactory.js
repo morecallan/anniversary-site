@@ -31,17 +31,21 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
     return $q(function(resolve, reject) {
         $http.get(`${FIREBASE_CONFIG.databaseURL}/images.json`)
         .then((data) => {
-          let imagesFromRSVP = data.data;
-          let iterations = Object.keys(imagesFromRSVP).length;
-          let resolveArray = [];
-          for (let img in imagesFromRSVP) {
-            getGuestName(imagesFromRSVP[img].submittedBy).then((name) => {
-              imagesFromRSVP[img].submittedBy = name;
-              resolveArray.push(imagesFromRSVP[img]);
-              if (resolveArray.length == iterations) {
-                resolve(imagesFromRSVP);
-              }
-            })
+          if (data.data != null && data.data != undefined) {
+            let imagesFromRSVP = data.data;
+            let iterations = Object.keys(imagesFromRSVP).length;
+            let resolveArray = [];
+            for (let img in imagesFromRSVP) {
+              getGuestName(imagesFromRSVP[img].submittedBy).then((name) => {
+                imagesFromRSVP[img].submittedBy = name;
+                resolveArray.push(imagesFromRSVP[img]);
+                if (resolveArray.length == iterations) {
+                  resolve(imagesFromRSVP);
+                }
+              })
+            }
+          } else {
+            resolve(null)
           }
         }, (error) => reject(error));
     });
@@ -116,17 +120,21 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
     return $q(function(resolve, reject) {
         $http.get(`${FIREBASE_CONFIG.databaseURL}/songs.json`)
         .then((data) => {
-          let songsFromRSVP = data.data;
-          let iterations = Object.keys(songsFromRSVP).length;
-          let resolveArray = [];
-          for (let song in songsFromRSVP) {
-            getGuestName(songsFromRSVP[song].submittedBy).then((name) => {
-              songsFromRSVP[song].submittedBy = name;
-              resolveArray.push(songsFromRSVP[song]);
-              if (resolveArray.length == iterations) {
-                resolve(songsFromRSVP);
-              }
-            })
+          if (data.data != null && data.data != undefined) {
+            let songsFromRSVP = data.data;
+            let iterations = Object.keys(songsFromRSVP).length;
+            let resolveArray = [];
+            for (let song in songsFromRSVP) {
+              getGuestName(songsFromRSVP[song].submittedBy).then((name) => {
+                songsFromRSVP[song].submittedBy = name;
+                resolveArray.push(songsFromRSVP[song]);
+                if (resolveArray.length == iterations) {
+                  resolve(songsFromRSVP);
+                }
+              })
+            }
+          } else {
+            resolve(null)
           }
         }, (error) => reject(error));
     });
