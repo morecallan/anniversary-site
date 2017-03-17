@@ -133,7 +133,8 @@
   #side-nav li {
     list-style: none;
     padding: 10px 15px;
-    border-radius: 5px; }
+    border-radius: 5px;
+    cursor: pointer; }
   #side-nav li:hover {
     background-color: rgba(0, 137, 123, 0.7);
     color: white; }
