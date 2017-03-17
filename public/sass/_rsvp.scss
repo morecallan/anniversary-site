@@ -6,8 +6,15 @@
   text-align: center;
 
   a {
-    color: #00897b;
+    color: #26a69a;
     font-weight: 400;
+  }
+
+  .share-link {
+    background-color: white;
+    padding: 5px;
+    margin: 0 2px;
+    border-radius: 5px;
   }
 }
 
@@ -59,4 +66,5 @@
    .additional-guests {
      left: 3%;
    }
+
  }

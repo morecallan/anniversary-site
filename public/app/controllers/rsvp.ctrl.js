@@ -56,7 +56,7 @@ app.controller("RSVPCtrl", function($scope, DataFactory){
     if ($scope.guests == true) {
       $scope.displayMoreGuestView = true;
     } else {
-      $scope.displayMoreGuestView = fale;
+      $scope.displayMoreGuestView = false;
     }
   }
 

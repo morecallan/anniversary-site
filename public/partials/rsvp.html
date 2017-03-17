@@ -3,19 +3,19 @@
     <div class="col s10 offset-s1">
       <h4>Please RSVP for attending only.</h4>
       <h6>RSVP By: May 15th, 2017</h6>
-      <p class="light">We understand if you can't make it! If you want to contribute to the fun, feel free to hop over to the <a href="#/share">share page</a>.</p>
+      <p class="light">We understand if you can't make it! If you want to contribute to the fun, feel free to hop over to the <a class="share-link z-depth-1" href="#/share">share page</a>.</p>
     </div>
   </div>
   <div class="row">
       <form class="col s12">
         <div class="required">
           <div class="row">
-            <div class="input-field col s12 m3">
+            <div class="input-field col s6 m3">
               <i class="material-icons prefix">account_circle</i>
               <input id="first_name" type="text" class="validate" required ng-model="rsvp.firstName">
               <label for="first_name">First Name</label>
             </div>
-            <div class="input-field col s12 m3">
+            <div class="input-field col s6 m3">
               <input id="last_name" type="text" class="validate"  required ng-model="rsvp.lastName">
               <label for="last_name">Last Name</label>
             </div>
@@ -31,17 +31,17 @@
               <input type="checkbox" id="out-of-town" ng-model="rsvp.outOfTown"/>
               <label for="out-of-town">Coming from out of town?</label>
             </div>
-            <div class="input-field col s12 m4">
+            <div class="input-field col s12 m4 additional-guest-row">
               <i class="material-icons prefix">pets</i>
               <input type="checkbox" id="pet" ng-click="needPetFriendlyModal()" ng-model="rsvp.needPetFriendly"/>
               <label for="pet">Planning on bringing your pet?</label>
             </div>
-            <div class="input-field col s9 m3">
+            <div class="input-field col s8 m3 additional-guest-row">
               <i class="material-icons prefix">group_add</i>
               <input type="checkbox" id="additional" ng-change="displayMoreGuests()" ng-model="guests"/>
-              <label for="additional">Additional Guests?</label>
+              <label for="additional">More Guests?</label>
             </div>
-            <div class="input-field col s3 m1" ng-show="displayMoreGuestView">
+            <div class="input-field col s4 m1 additional-guest-row" ng-show="displayMoreGuestView">
               <input type="number" id="additional-num" ng-change="calculateNumToDisplay()" ng-model="numOfGuests"/>
               <label for="additional-num">How Many?</label>
             </div>
@@ -73,7 +73,7 @@
 
 
         <div class="not-required">
-          <div class="row" id="file_upload">
+          <div class="row hide-on-small-and-down" id="file_upload">
             <div class="col s12 m5">
               <p class="white-text"><i class="black-text material-icons prefix small" style="padding-right: 10px;">photo</i>Have a picture of the couple you want to share?</p>
             </div>
@@ -88,7 +88,7 @@
             </div>
           </div>
 
-          <div class="row">
+          <div class="row hide-on-small-and-down">
             <div class="col s12 m5">
               <p class="white-text"><i class="black-text material-icons prefix small" style="padding-right: 10px;">music_note</i>Have a song that reminds you of Scott & Cindy?</p>
             </div>

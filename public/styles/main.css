@@ -77,8 +77,13 @@
   border-radius: 5px;
   text-align: center; }
   .rsvp-row a {
-    color: #00897b;
+    color: #26a69a;
     font-weight: 400; }
+  .rsvp-row .share-link {
+    background-color: white;
+    padding: 5px;
+    margin: 0 2px;
+    border-radius: 5px; }
 
 .required {
   background-color: rgba(77, 182, 172, 0.4);
