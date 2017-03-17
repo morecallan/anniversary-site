@@ -1,5 +1,11 @@
+<div id="side-nav">
+  <li><a href="#story">Their Story</a></li>
+  <li><a href="#gallery">Gallery</a></li>
+  <li><a href="#playlist">Playlist</a></li>
+</div>
+
 <div class="container">
-  <div class="share-section">
+  <div class="share-section story" id="story">
     <h4 class="center">Their Story</h4>
     <section>
       <h5>The Beginning</h5>
@@ -19,7 +25,7 @@
       <h5>What Their Friends Have to Say</h5>
       <section class="overflow-scroll">
         <div class="memory" ng-repeat="memory in memories">
-          <p>{{memory.memory}}</p>
+          <p class="memory-text">{{memory.memory}}</p>
           <p ng-if="memory.submittedBy">Submitted by: {{memory.submittedBy || "Anonymous"}}</p>
         </div>
       </section>
@@ -45,7 +51,7 @@
     </section>
   </div>
 
-  <div class="share-section">
+  <div class="share-section" id="gallery">
     <h4 class="center">Gallery</h4>
     <div id="photos">
       <div class="img-card" ng-repeat="photo in photos">
@@ -53,7 +59,7 @@
         <h6 ng-if="photo.submittedBy"> Submitted by: {{photo.submittedBy || "Anonymous"}}</h6>
       </div>
     </div>
-    <section class="sharing-input">
+    <section class="sharing-input hide-on-small-and-down">
       <h5>Want to add your memories with Scott and Cindy?</h5>
       <div class="file-field input-field">
         <div class="btn">
@@ -76,7 +82,7 @@
     </section>
   </div>
 
-  <div class="share-section">
+  <div class="share-section" id="playlist">
     <h4 class="center">The Playlist</h4>
     <section class="playlist">
       <div class="col s12 center" ng-repeat="song in songs">

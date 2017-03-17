@@ -117,45 +117,98 @@
   .additional-guests {
     left: 3%; } }
 
-.overflow-scroll {
-  max-height: 100px;
-  overflow: auto;
-  background-color: rgba(117, 117, 117, 0.2); }
+#side-nav {
+  position: fixed;
+  left: 5%;
+  top: 10%;
+  width: 100px;
+  text-align: center; }
+  #side-nav li {
+    list-style: none;
+    padding: 15px; }
+  #side-nav li:hover {
+    background-color: rgba(0, 137, 123, 0.7); }
 
-.memory {
-  width: 96%;
-  margin: 2%;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: white;
-  background-color: rgba(77, 182, 172, 0.9); }
+.story {
+  background: url("/img/background.jpg") center center no-repeat;
+  background-size: cover; }
+  .story section {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2%;
+    border-radius: 5px;
+    margin: 20px 0; }
+  .story .overflow-scroll {
+    max-height: 200px;
+    overflow: auto; }
+  .story .memory {
+    width: 96%;
+    margin: 2%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgba(117, 117, 117, 0.9);
+    text-align: center; }
+    .story .memory .memory-text {
+      font-family: 'Clicker Script', cursive;
+      font-size: 2em; }
 
 #photos {
   display: flex;
-  flex-flow: row wrap;
   width: 100%;
-  height: 600px;
-  overflow-y: auto; }
-
-#photos .img-card {
-  min-height: 300px;
-  max-height: 300px;
-  width: auto; }
-
-.img-card {
-  position: relative;
-  margin: 0 10px; }
-  .img-card h6 {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 10px;
-    color: white;
-    text-align: center;
-    background-color: rgba(117, 117, 117, 0.8); }
-  .img-card img {
-    border-radius: 5px;
-    min-height: 300px;
-    max-height: 300px;
+  height: 400px;
+  overflow-x: scroll;
+  margin: 20px 0;
+  border-radius: 5px; }
+  #photos .img-card {
+    min-height: 400px;
+    max-height: 400px;
     width: auto; }
+  #photos .img-card {
+    position: relative;
+    margin: 0 10px; }
+    #photos .img-card h6 {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 10px;
+      color: white;
+      text-align: center;
+      background-color: rgba(117, 117, 117, 0.8); }
+    #photos .img-card img {
+      border-radius: 5px;
+      min-height: 400px;
+      max-height: 400px;
+      width: auto; }
+
+.playlist {
+  margin: 20px 0;
+  background-color: rgba(255, 255, 255, 0.4);
+  max-height: 300px;
+  border-radius: 5px;
+  overflow: scroll; }
+
+.submitted-by {
+  padding-left: 20px;
+  font-family: 'Satisfy', cursive; }
+
+.share-section {
+  margin: 20px 0;
+  border-radius: 5px;
+  background-color: rgba(117, 117, 117, 0.7);
+  padding: 2% 5%; }
+  .share-section h4 {
+    margin: 0;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(0, 137, 123, 0.7);
+    font-family: 'Lobster', cursive; }
+
+.sharing-input {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  padding: 2%;
+  text-align: center; }
+  .sharing-input .row {
+    margin: 0; }
