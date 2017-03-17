@@ -1,0 +1,47 @@
+.rsvp-row {
+  margin: 20px 0;
+  background-color: rgba(#757575, 0.8);
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+
+  a {
+    color: #00897b;
+    font-weight: 400;
+  }
+}
+
+.required {
+  background-color: rgba(#4db6ac, 0.4);
+  padding: 20px;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.additional-guests {
+  background-color: rgba(#4db6ac, 0.4);
+  margin: 10px;
+  border-radius: 5px;
+
+  h5 {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+  }
+}
+
+.not-required {
+  margin: 10px 0;
+  padding: 0 20px;
+  border-radius: 5px;
+  background-color: rgba(#757575, 0.4);
+
+  label {
+    color: white;
+  }
+
+  .row {
+    margin: 0;
+    padding: 0;
+  }
+}

@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col s10 offset-1">
+  <div class="row rsvp-row">
+    <div class="col s10 offset-s1">
       <h4>Please RSVP for attending only.</h4>
       <h6>RSVP By: May 15th, 2017</h6>
       <p class="light">We understand if you can't make it! If you want to contribute to the fun, feel free to hop over to the <a href="#/share">share page</a>.</p>
@@ -8,100 +8,109 @@
   </div>
   <div class="row">
       <form class="col s12">
-        <div class="row">
-          <div class="input-field col s3">
-            <i class="material-icons prefix">account_circle</i>
-            <input id="first_name" type="text" class="validate" required ng-model="rsvp.firstName">
-            <label for="first_name">First Name</label>
+        <div class="required">
+          <div class="row">
+            <div class="input-field col s12 m3">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="first_name" type="text" class="validate" required ng-model="rsvp.firstName">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s12 m3">
+              <input id="last_name" type="text" class="validate"  required ng-model="rsvp.lastName">
+              <label for="last_name">Last Name</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <i class="material-icons prefix">email</i>
+              <input id="email" type="email" class="validate" required ng-model="rsvp.email">
+              <label for="email">Email</label>
+            </div>
           </div>
-          <div class="input-field col s3">
-            <input id="last_name" type="text" class="validate"  required ng-model="rsvp.lastName">
-            <label for="last_name">Last Name</label>
-          </div>
-          <div class="input-field col s6">
-            <i class="material-icons prefix">email</i>
-            <input id="email" type="email" class="validate" required ng-model="rsvp.email">
-            <label for="email">Email</label>
+          <div class="row">
+            <div class="input-field col s12 m4">
+              <i class="material-icons prefix">card_travel</i>
+              <input type="checkbox" id="out-of-town" ng-model="rsvp.outOfTown"/>
+              <label for="out-of-town">Coming from out of town?</label>
+            </div>
+            <div class="input-field col s12 m4">
+              <i class="material-icons prefix">pets</i>
+              <input type="checkbox" id="pet" ng-click="needPetFriendlyModal()" ng-model="rsvp.needPetFriendly"/>
+              <label for="pet">Planning on bringing your pet?</label>
+            </div>
+            <div class="input-field col s9 m3">
+              <i class="material-icons prefix">group_add</i>
+              <input type="checkbox" id="additional" ng-change="displayMoreGuests()" ng-model="guests"/>
+              <label for="additional">Additional Guests?</label>
+            </div>
+            <div class="input-field col s3 m1" ng-show="displayMoreGuestView">
+              <input type="number" id="additional-num" ng-change="calculateNumToDisplay()" ng-model="numOfGuests"/>
+              <label for="additional-num">How Many?</label>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s4">
-            <i class="material-icons prefix">card_travel</i>
-            <input type="checkbox" id="out-of-town" ng-model="rsvp.outOfTown"/>
-            <label for="out-of-town">Coming from out of town?</label>
-          </div>
-          <div class="input-field col s4">
-            <i class="material-icons prefix">pets</i>
-            <input type="checkbox" id="pet" ng-click="needPetFriendlyModal()" ng-model="rsvp.needPetFriendly"/>
-            <label for="pet">Planning on bringing your pet?</label>
-          </div>
-          <div class="input-field col s3">
-            <i class="material-icons prefix">group_add</i>
-            <input type="checkbox" id="additional" ng-change="displayMoreGuests()" ng-model="guests"/>
-            <label for="additional">Additional Guests?</label>
-          </div>
-          <div class="input-field col s1" ng-show="displayMoreGuestView">
-            <input type="number" id="additional-num" ng-change="calculateNumToDisplay()" ng-model="numOfGuests"/>
-            <label for="additional-num">How Many?</label>
-          </div>
-        </div>
+
 
 
         <!-- Additional Guests -->
-        <h5 ng-if="additionalGuests.length > 0">Additional Guests</h5>
-        <div ng-repeat="additionalGuest in additionalGuests track by $index">
-            <div class="input-field col s3">
-              <i class="material-icons prefix">account_circle</i>
-              <input id="first_name{{$index}}" type="text" class="validate" ng-model="guestsToBeAdded[$index].firstName">
-              <label for="first_name{{$index}}">First Name</label>
+        <div class="additional-guests row">
+          <h5 ng-if="additionalGuests.length > 0">Additional Guests</h5>
+          <div ng-repeat="additionalGuest in additionalGuests track by $index">
+              <div class="input-field col s6 m3">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="first_name{{$index}}" type="text" class="validate" ng-model="guestsToBeAdded[$index].firstName">
+                <label for="first_name{{$index}}">First Name</label>
+              </div>
+              <div class="input-field col s6 m3">
+                <input id="last_name{{$index}}" type="text" class="validate"  ng-model="guestsToBeAdded[$index].lastName">
+                <label for="last_name{{$index}}">Last Name</label>
+              </div>
+              <div class="input-field col s12 m6">
+                <i class="material-icons prefix">email</i>
+                  <input id="email{{$index}}" type="email" class="validate" ng-model="guestsToBeAdded[$index].email">
+                <label for="email{{$index}}">Email</label>
+              </div>
             </div>
-            <div class="input-field col s3">
-              <input id="last_name{{$index}}" type="text" class="validate"  ng-model="guestsToBeAdded[$index].lastName">
-              <label for="last_name{{$index}}">Last Name</label>
+        </div>
+
+
+        <div class="not-required">
+          <div class="row" id="file_upload">
+            <div class="col s12 m5">
+              <p class="white-text"><i class="black-text material-icons prefix small" style="padding-right: 10px;">photo</i>Have a picture of the couple you want to share?</p>
             </div>
-            <div class="input-field col s6">
-              <i class="material-icons prefix">email</i>
-                <input id="email{{$index}}" type="email" class="validate" ng-model="guestsToBeAdded[$index].email">
-              <label for="email{{$index}}">Email</label>
+            <div class="file-field input-field col s12 m7">
+              <div class="btn">
+                <span>File</span>
+                <input type="file" ng-model="picture" ngf-select ng-change="submitPicture()">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
             </div>
           </div>
 
-        <div class="row" id="file_upload">
-          <div class="col s4">
-            <p class="grey-text"><i class="black-text material-icons prefix small" style="padding-right: 10px;">photo</i>Have a picture of the couple you want to share?</p>
-          </div>
-          <div class="file-field input-field col s8">
-            <div class="btn">
-              <span>File</span>
-              <input type="file" ng-model="picture" ngf-select ng-change="submitPicture()">
+          <div class="row">
+            <div class="col s12 m5">
+              <p class="white-text"><i class="black-text material-icons prefix small" style="padding-right: 10px;">music_note</i>Have a song that reminds you of Scott & Cindy?</p>
             </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text">
+            <div class="col s12 m7">
+              <div class="input-field">
+                <input id="song" type="text" class="validate"  ng-model="song">
+                <label for="song">That song</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="textarea1" class="materialize-textarea" ng-model="rsvp.notes"></textarea>
+              <label for="textarea1">More Info | What Can I Bring (Hint: A drink or dish to share)</label>
             </div>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col s4">
-            <p class="grey-text"><i class="black-text material-icons prefix small" style="padding-right: 10px;">music_note</i>Have a song that reminds you of Scott & Cindy?</p>
-          </div>
-          <div class="col s8">
-            <div class="input-field">
-              <input id="song" type="text" class="validate"  ng-model="song">
-              <label for="song">That song</label>
-            </div>
-          </div>
-        </div>
 
         <div class="row">
-          <div class="input-field col s12">
-            <textarea id="textarea1" class="materialize-textarea" ng-model="rsvp.notes"></textarea>
-            <label for="textarea1">More Info | What Can I Bring (Hint: A drink or dish to share)</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s2 offset-s10">
+          <div class="col s6 offset-s4 m2 offset-m10">
             <button type="button" class="btn btn-large" name="button" ng-click="submission()">Done!</button>
           </div>
         </div>
