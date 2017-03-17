@@ -89,8 +89,11 @@
 
 .additional-guests {
   background-color: rgba(77, 182, 172, 0.4);
-  margin: 10px;
-  border-radius: 5px; }
+  margin: 10px 1%;
+  border-radius: 5px;
+  position: relative;
+  width: 100%;
+  left: 1%; }
   .additional-guests h5 {
     text-align: center;
     margin: 10px;
@@ -106,6 +109,14 @@
   .not-required .row {
     margin: 0;
     padding: 0; }
+
+@media (max-width: 992px) {
+  .additional-guests {
+    left: 2%; } }
+
+@media (max-width: 600px) {
+  .additional-guests {
+    left: 3%; } }
 
 .overflow-scroll {
   max-height: 100px;

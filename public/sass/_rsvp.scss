@@ -20,8 +20,11 @@
 
 .additional-guests {
   background-color: rgba(#4db6ac, 0.4);
-  margin: 10px;
+  margin: 10px 1%;
   border-radius: 5px;
+  position: relative;
+  width: 100%;
+  left: 1%;
 
   h5 {
     text-align: center;
@@ -45,3 +48,15 @@
     padding: 0;
   }
 }
+
+@media (max-width: 992px) {
+   .additional-guests {
+     left: 2%;
+   }
+ }
+
+@media (max-width: 600px) {
+   .additional-guests {
+     left: 3%;
+   }
+ }
