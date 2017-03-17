@@ -227,3 +227,7 @@
   text-align: center; }
   .sharing-input .row {
     margin: 0; }
+
+footer .row {
+  margin: 0 !important;
+  padding: 0 !important; }

@@ -3,3 +3,10 @@
 @import "more-info";
 @import "rsvp";
 @import "share";
+
+footer {
+  .row {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
