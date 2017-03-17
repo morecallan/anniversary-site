@@ -1,17 +1,21 @@
 #side-nav {
   position: fixed;
-  left: 5%;
+  left: 2%;
   top: 10%;
-  width: 100px;
+  width: 150px;
   text-align: center;
+  font-family: 'Cookie', cursive;
+  font-size: 2em;
 
   li {
     list-style: none;
-    padding: 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
   }
 
   li:hover {
     background-color: rgba( #00897b, 0.7);
+    color: white;
   }
 }
 

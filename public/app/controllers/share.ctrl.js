@@ -1,6 +1,12 @@
 "use strict"
 
-app.controller("ShareCtrl", function($scope, $q, DataFactory){
+app.controller("ShareCtrl", function($scope, $q, $location, $anchorScroll, DataFactory){
+
+  // Scroll To Utility Function
+   $scope.scrollTo = function(id) {
+      $location.hash(id);
+      $anchorScroll();
+   }
 
   /*************************/
   /******* Memories ********/
