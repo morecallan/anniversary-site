@@ -1,14 +1,11 @@
-.hotel-main-container {
-  display: flex; }
-
 .hotel-info {
-  width: 30%;
   background-color: rgba(117, 117, 117, 0.8);
   padding: 20px;
-  margin: 1%;
   color: white;
   border-radius: 5px;
-  text-align: center; }
+  text-align: center;
+  margin: 10px;
+  min-height: 450px; }
   .hotel-info h6 {
     font-size: 2em; }
   .hotel-info img {
@@ -24,16 +21,18 @@
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-family: 'Poppins', sans-serif; }
-
-.other-options {
-  width: 62%; }
+    font-family: 'Poppins', sans-serif;
+    bottom: 0; }
 
 .after-hotel {
-  width: 94%;
+  min-height: 100px;
   background-color: rgba(77, 182, 172, 0.9); }
 
+.other-hotel {
+  min-height: 200px; }
+
 .transportation {
+  min-height: 100px;
   background-color: rgba(117, 117, 117, 0.8); }
 
 .padding-top-bottom {
