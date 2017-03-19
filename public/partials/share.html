@@ -40,12 +40,13 @@
       </div>
 
       <div class="row">
-        <div class="input-field col s6 offset-s2">
+        <div class="input-field col s7 m6 offset-m2">
           <input id="share-memory-name" type="text" ng-model="memory.submittedBy" class="validate">
           <label for="share-memory-name">Submitted By:</label>
         </div>
-        <div class="col s2">
-          <button type="button" ng-click="submitMemory()" class="btn">Add it!</button>
+        <div class="col s5 m3">
+          <button type="button" ng-click="submitMemory()" class="btn hide-on-small-only">Add it!</button>
+          <button type="button" ng-click="submitMemory()" class="btn hide-on-med-and-up">Add!</button>
         </div>
       </div>
     </section>
@@ -100,12 +101,13 @@
       </div>
 
       <div class="row">
-        <div class="input-field col s6 offset-s2">
+        <div class="input-field col s7 m6 offset-m2">
           <input id="share-song-name" type="text" ng-model="song.submittedBy" class="validate">
           <label for="share-song-name">Submitted By:</label>
         </div>
-        <div class="col s2">
-          <button type="button" ng-click="submitSong()" class="btn">Rock it!</button>
+        <div class="col s5 m3">
+          <button type="button" ng-click="submitSong()" class="btn hide-on-small-only">Rock it!</button>
+          <button type="button" ng-click="submitSong()" class="btn hide-on-med-and-up">Add!</button>
         </div>
       </div>
     </section>
