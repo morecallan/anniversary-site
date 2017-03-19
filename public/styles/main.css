@@ -51,6 +51,12 @@
   .mock-modal p {
     text-align: center; }
 
+@media (max-width: 600px) {
+  .mock-modal {
+    width: 80%;
+    left: 10%;
+    top: 50%; } }
+
 .mudcat-bg {
   background: url("http://farm5.static.flickr.com/4132/4968794261_2a7d0bcd5b.jpg") center center no-repeat;
   background-size: cover; }

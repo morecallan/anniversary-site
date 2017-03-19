@@ -13,3 +13,11 @@
     text-align: center;
   }
 }
+
+@media (max-width: 600px) {
+   .mock-modal  {
+     width: 80%;
+     left: 10%;
+     top: 50%;
+   }
+ }
