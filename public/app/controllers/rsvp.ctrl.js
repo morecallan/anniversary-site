@@ -119,9 +119,10 @@ app.controller("RSVPCtrl", function($scope, DataFactory){
 
         if (imageObj.imageURL != undefined && imageObj.imageURL != "") {
           DataFactory.addNewImageRef(imageObj).then((data) => {
-            Materialize.toast(`Can't wait to see you there, ${$scope.rsvp.firstName}`, 2000, "green")
           })
         }
+
+        Materialize.toast(`Can't wait to see you there, ${$scope.rsvp.firstName}`, 2000, "green")
       })
 
       for (var i = 0; i < $scope.guestsToBeAdded.length; i++) {
