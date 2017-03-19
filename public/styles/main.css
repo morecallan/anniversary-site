@@ -231,3 +231,6 @@
 footer .row {
   margin: 0 !important;
   padding: 0 !important; }
+
+.small-logo {
+  font-size: 1.5em !important; }
