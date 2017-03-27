@@ -65,16 +65,22 @@
   background: rgba(117, 117, 117, 0.8); }
 
 .medium-card {
-  max-height: 450px;
-  min-height: 450px;
+  max-height: 500px;
+  min-height: 500px;
+  height: 500px;
   overflow: hidden; }
 
 .medium-card img {
-  max-height: 250px; }
+  max-height: 350px; }
 
 .card-title {
   background-color: rgba(117, 117, 117, 0.8);
   width: 100%; }
+
+@media (max-width: 600px) {
+  .medium-card {
+    max-height: 490px;
+    min-height: 490px; } }
 
 .rsvp-row {
   margin: 20px 0;
