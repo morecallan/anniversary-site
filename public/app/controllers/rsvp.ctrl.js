@@ -1,4 +1,4 @@
-app.controller("RSVPCtrl", function($scope, DataFactory){
+app.controller("RSVPCtrl", function($scope, $location, $timeout, DataFactory){
   var storage = firebase.storage();
   var storageRef= firebase.storage().ref();
 
@@ -122,7 +122,20 @@ app.controller("RSVPCtrl", function($scope, DataFactory){
           })
         }
 
-        Materialize.toast(`Can't wait to see you there, ${$scope.rsvp.firstName}`, 2000, "green")
+        Materialize.toast(`Can't wait to see you there, ${$scope.rsvp.firstName}`, 3000, "green")
+
+        $scope.rsvp = {
+          firstName: "",
+          lastName: "",
+          email: "",
+          outOfTown: false,
+          needPetFriendly: false
+        }
+        $("#submit-btn").attr('disabled', true);
+
+        $timeout(function () {
+          $location.path('/share')
+        }, 1000);
       })
 
       for (var i = 0; i < $scope.guestsToBeAdded.length; i++) {
