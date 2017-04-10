@@ -247,3 +247,7 @@ footer .row {
 
 .small-logo {
   font-size: 1.5em !important; }
+
+@media (max-width: 600px) {
+  .shrink-on-down {
+    font-size: 3em; } }
