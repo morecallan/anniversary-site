@@ -20,6 +20,10 @@ app.config (function($routeProvider){
 		templateUrl: 'partials/accomodations.html',
 		controller: 'AccomodationsCtrl',
 	}).
+	when('/admin', {
+		templateUrl: 'partials/admin.html',
+		controller: 'AdminCtrl',
+	}).
 	otherwise('/')
 });
 
