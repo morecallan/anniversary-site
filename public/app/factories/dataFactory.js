@@ -51,6 +51,16 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
     });
   }
 
+  const getGuests = () => {
+    return $q(function(resolve, reject) {
+        $http.get(`${FIREBASE_CONFIG.databaseURL}/guests.json`)
+        .then((data) => {
+          let guest = data.data
+          resolve(guest);
+        }, (error) => reject(error));
+    });
+  }
+
   var getGuestName = (guestId) => {
     return $q(function(resolve, reject) {
         $http.get(`${FIREBASE_CONFIG.databaseURL}/guests/${guestId}.json`)
@@ -140,5 +150,5 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
     });
   }
 
-  return {addNewGuest: addNewGuest, addNewSong: addNewSong, addNewImageRef: addNewImageRef, returnRSVPPhotos: returnRSVPPhotos, submitMemory: submitMemory, getMemories: getMemories, submitPicturesFromShare: submitPicturesFromShare, getSharedPics: getSharedPics, submitSong: submitSong, getSongs: getSongs, returnRSVPSongs: returnRSVPSongs}
+  return {addNewGuest: addNewGuest, addNewSong: addNewSong, addNewImageRef: addNewImageRef, returnRSVPPhotos: returnRSVPPhotos, submitMemory: submitMemory, getMemories: getMemories, submitPicturesFromShare: submitPicturesFromShare, getSharedPics: getSharedPics, submitSong: submitSong, getSongs: getSongs, returnRSVPSongs: returnRSVPSongs, getGuests}
 })

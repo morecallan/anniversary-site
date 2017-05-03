@@ -1,3 +1,5 @@
-app.controller("AdminCtrl", function($scope){
-  console.log("AdminCtrl loaded")
+app.controller("AdminCtrl", function($scope, DataFactory){
+  DataFactory.getGuests().then((data) => {
+    $scope.guests = data;
+  })
 })
