@@ -1,24 +1,26 @@
-<div class="container">
-  <div ng-repeat="guest in guests">
-    <p>{{guest.firstName}} {{guest.lastName}} </p>
-    <p>{{guest.email}}</p>
-  </div>
+ <div class="container">
+
+   <table class="striped highlight">
+      <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Need Pet Friendly?</th>
+            <th>Out of town?</th>
+            <th>Notes</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="guest in guests">
+          <td width="5%">{{$index + 1}}</td>
+          <td width="20%">{{guest.firstName}} {{guest.lastName}}</td>
+          <td width="20%">{{guest.email}}</td>
+          <td width="10%">{{guest.needPetFriendly}}</td>
+          <td width="10%">{{guest.outOfTown}}</td>
+          <td width="30%">{{guest.notes}}</td>
+        </tr>
+      </tbody>
+    </table>
 </div>
-
-<table class="highlight striped">
-        <thead>
-          <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Item Price</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr ng-repeat="guest in guests">
-            <td>{{guest.firstName}} {{guest.lastName}}</td>
-            <td>{{guest.email}}</td>
-            <td>$0.87</td>
-          </tr>
-        </tbody>
-      </table>
