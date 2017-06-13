@@ -251,3 +251,7 @@ footer .row {
 @media (max-width: 600px) {
   .shrink-on-down {
     font-size: 3em; } }
+
+table.highlight > tbody > tr:hover {
+  background-color: #009688 !important;
+  color: white !important; }
