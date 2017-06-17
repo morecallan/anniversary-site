@@ -17,8 +17,8 @@
           <td width="5%">{{$index + 1}}</td>
           <td width="20%">{{guest.firstName}} {{guest.lastName}}</td>
           <td width="20%">{{guest.email}}</td>
-          <td width="10%">{{guest.needPetFriendly}}</td>
-          <td width="10%">{{guest.outOfTown}}</td>
+          <td width="10%">{{guest.needPetFriendly ? "Yes" : "No"}}</td>
+          <td width="10%">{{guest.outOfTown ? "Yes" : "No"}}</td>
           <td width="30%">{{guest.notes}}</td>
         </tr>
       </tbody>
