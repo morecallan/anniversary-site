@@ -150,5 +150,5 @@ app.factory("DataFactory", function($q, $http, FIREBASE_CONFIG){
     });
   }
 
-  return {addNewGuest: addNewGuest, addNewSong: addNewSong, addNewImageRef: addNewImageRef, returnRSVPPhotos: returnRSVPPhotos, submitMemory: submitMemory, getMemories: getMemories, submitPicturesFromShare: submitPicturesFromShare, getSharedPics: getSharedPics, submitSong: submitSong, getSongs: getSongs, returnRSVPSongs: returnRSVPSongs, getGuests}
+  return {addNewGuest, addNewSong, addNewImageRef, returnRSVPPhotos, submitMemory, getMemories, submitPicturesFromShare, getSharedPics, submitSong, getSongs, returnRSVPSongs, getGuests}
 })
